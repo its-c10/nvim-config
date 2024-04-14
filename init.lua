@@ -2,7 +2,7 @@ require("caleb")
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-
+vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro"
 vim.wo.relativenumber = true
 
 -- Set to true if you have a Nerd Font installed
@@ -728,7 +728,7 @@ require("lazy").setup({
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
-
+			require("mini.starter").setup()
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
