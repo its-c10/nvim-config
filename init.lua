@@ -1,8 +1,12 @@
 require("caleb")
 
-vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro" -- Gives line numbers to netr
+-- Netrw Changes
+vim.g.netrw_liststyle = 3
+vim.g.netrw_banner = false -- Removes banner at the top of the page.
+vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro" -- Gives line numbers to netrw.
+
 vim.wo.relativenumber = true
--- Set to true if you have a Nerd Font installed
+-- Set to true if you have a Nerd Font installed.
 vim.g.have_nerd_font = true
 -- [[ Setting options ]]
 -- See `:help vim.opt`
