@@ -712,7 +712,16 @@ require("lazy").setup({
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
-			require("mini.starter").setup()
+			local starter = require("mini.starter")
+			starter.setup({
+				items = {
+					starter.sections.pick(),
+				},
+				content_hooks = {
+					starter.gen_hook.adding_bullet(),
+					starter.gen_hook.aligning("center", "center"),
+				},
+			})
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
