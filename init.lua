@@ -140,16 +140,13 @@ require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	-- MY PLUGINS
-<<<<<<< HEAD
 	"github/copilot.vim",
-=======
 	{
 		"nvim-telescope/telescope-file-browser.nvim", -- https://github.com/nvim-telescope/telescope-file-browser.nvim
 		config = function()
 			vim.keymap.set("n", "<leader>sf", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 		end,
 	},
->>>>>>> 95497a6f62c56bf4fa0702752cb43414a102d02f
 	"ThePrimeagen/vim-be-good",
 	"nvim-lua/plenary.nvim",
 	{
