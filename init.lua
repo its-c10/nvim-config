@@ -140,6 +140,7 @@ require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	-- MY PLUGINS
+	"github/copilot.vim",
 	"ThePrimeagen/vim-be-good",
 	"nvim-lua/plenary.nvim",
 	{
