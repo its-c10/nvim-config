@@ -715,7 +715,7 @@ require("lazy").setup({
 			local starter = require("mini.starter")
 			starter.setup({
 				items = {
-					starter.sections.pick(),
+					starter.sections.telescope(),
 				},
 				content_hooks = {
 					starter.gen_hook.adding_bullet(),
