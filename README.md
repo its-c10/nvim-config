@@ -1,5 +1,7 @@
 # Todo
-- [ ] Fix <leader>O bind so that cursor stays in correct spot.
+- [ ] Fix \<leader\>O bind so that cursor stays in correct spot.
 - [ ] Have Java LSP be able to go to declarations of classes that are imported through Maven (No clue how to do this).
 - [ ] Get Copilot to work.
-- [ ] Create own custom start menu. 
+- [ ] Create own custom start menu via custom mini.starter section. 
+- [ ] Make telescope file browser show hidden files.
+    - [ ] Make \<leader\>pv use telescope file browser. This makes netwr irrelevant. 
