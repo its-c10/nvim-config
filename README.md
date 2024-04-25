@@ -3,5 +3,5 @@
 - [ ] Have Java LSP be able to go to declarations of classes that are imported through Maven (No clue how to do this).
 - [ ] Get Copilot to work.
 - [ ] Create own custom start menu via custom mini.starter section. 
-- [ ] Make telescope file browser show hidden files.
-    - [ ] Make \<leader\>pv use telescope file browser. This makes netwr irrelevant. 
+- [x] Make telescope file browser show hidden files.
+    - [x] Make \<leader\>pv use telescope file browser. This makes netwr irrelevant. 
