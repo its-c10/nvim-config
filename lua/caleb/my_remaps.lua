@@ -11,7 +11,7 @@ vim.keymap.set(
 vim.keymap.set(
 	"n",
 	"<leader>O",
-	"O<Esc><Up>",
+	"O<Esc><Down>",
 	{ desc = "Inserts newline ABOVE cursor without going into insert mode and without moving cursor." }
 )
 vim.keymap.set("n", "<leader>x", "<Cmd>:bd<Cr>", { desc = "Deletes the current buffer." })
