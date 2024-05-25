@@ -5,3 +5,4 @@
 - [ ] Create own custom start menu via custom mini.starter section. 
 - [x] Make telescope file browser show hidden files.
     - [x] Make \<leader\>pv use telescope file browser. This makes netwr irrelevant. 
+- [ ] Add a bind that lets you put semicolon at end of line while also keeping current cursor position. 
