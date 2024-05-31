@@ -30,8 +30,9 @@ end, {
 })
 
 -- Adds a semi-colon to your current line.
-vim.keymap.set("n", "<leader>cs", function()
+vim.keymap.set("n", ";", function()
 	local currLine = vim.api.nvim_get_current_line()
+	currLine = string.gsub(currLine, "[ \t]+%f[\r\n%z]", "")
 	currLine = currLine .. ";"
 	vim.api.nvim_set_current_line(currLine)
 end, {
