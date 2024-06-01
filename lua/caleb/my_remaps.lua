@@ -11,13 +11,12 @@ vim.keymap.set(
 vim.keymap.set(
 	"n",
 	"<leader>O",
-	"O<Esc><Down>",
+	"O<Esc><Up>",
 	{ desc = "Inserts newline ABOVE cursor without going into insert mode and without moving cursor." }
 )
 vim.keymap.set("n", "<leader>x", "<Cmd>:bd<Cr>", { desc = "Deletes the current buffer." })
 
 -- Lets you set current buffer's directory to current working directory with ease.
--- Example: ":cd %%"
 vim.keymap.set("c", "%%", function()
 	if vim.fn.getcmdtype() == ":" then
 		return vim.fn.expand("%:h") .. "/"
@@ -33,6 +32,9 @@ end, {
 vim.keymap.set("n", ";", function()
 	local currLine = vim.api.nvim_get_current_line()
 	currLine = string.gsub(currLine, "[ \t]+%f[\r\n%z]", "")
+	if currLine.sub(currLine, -1) == ";" then
+		return
+	end
 	currLine = currLine .. ";"
 	vim.api.nvim_set_current_line(currLine)
 end, {
