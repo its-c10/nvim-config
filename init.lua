@@ -147,6 +147,12 @@ require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	-- MY PLUGINS
 	-- "github/copilot.vim",
+	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup({})
+		end,
+	},
 	"nvim-telescope/telescope-file-browser.nvim", -- https://github.com/nvim-telescope/telescope-file-browser.nvim
 	"ThePrimeagen/vim-be-good",
 	"nvim-lua/plenary.nvim",
