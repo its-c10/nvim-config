@@ -6,3 +6,6 @@
 - [x] Make telescope file browser show hidden files.
     - [x] Make \<leader\>pv use telescope file browser. This makes netwr irrelevant. 
 - [x] Add a bind that lets you put semicolon at end of line while also keeping current cursor position. 
+- [ ] Setup formatting configurations for Java.
+- [ ] Fix tabbing for specific LSP's. Example: txt files have a tabstop of 8???
+- [ ] Fix mini.surround bindings. 

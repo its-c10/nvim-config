@@ -27,16 +27,3 @@ end, {
 	expr = true,
 	desc = "When in command mode, putting %% will return the current directory. Useful when you want to cd to current buffers directory",
 })
-
--- Adds a semi-colon to your current line.
-vim.keymap.set("n", ";", function()
-	local currLine = vim.api.nvim_get_current_line()
-	currLine = string.gsub(currLine, "[ \t]+%f[\r\n%z]", "")
-	if currLine.sub(currLine, -1) == ";" then
-		return
-	end
-	currLine = currLine .. ";"
-	vim.api.nvim_set_current_line(currLine)
-end, {
-	desc = "Add semi-colon to end of line",
-})

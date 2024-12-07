@@ -143,16 +143,16 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
-	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-	-- MY PLUGINS
-	-- "github/copilot.vim",
-	{
-		"supermaven-inc/supermaven-nvim",
-		config = function()
-			require("supermaven-nvim").setup({})
-		end,
-	},
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
+	"rose-pine/neovim",
+	"EdenEast/nightfox.nvim",
 	"nvim-telescope/telescope-file-browser.nvim", -- https://github.com/nvim-telescope/telescope-file-browser.nvim
 	"ThePrimeagen/vim-be-good",
 	"nvim-lua/plenary.nvim",
@@ -225,22 +225,22 @@ require("lazy").setup({
 	-- after the plugin has been loaded:
 	--  config = function() ... end
 
-	{ -- Useful plugin to show you pending keybinds.
-		"folke/which-key.nvim",
-		event = "VimEnter", -- Sets the loading event to 'VimEnter'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-			})
-		end,
-	},
+	-- { -- Useful plugin to show you pending keybinds.
+	-- 	"folke/which-key.nvim",
+	-- 	event = "VimEnter", -- Sets the loading event to 'VimEnter'
+	-- 	config = function() -- This is the function that runs, AFTER loading
+	-- 		require("which-key").setup()
+	--
+	-- 		-- Document existing key chains
+	-- 		require("which-key").register({
+	-- 			["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
+	-- 			["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
+	-- 			["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
+	-- 			["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
+	-- 			["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+	-- 		})
+	-- 	end,
+	-- },
 
 	-- NOTE: Plugins can specify dependencies.
 	--
@@ -548,42 +548,42 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- Autoformat
-		"stevearc/conform.nvim",
-		lazy = false,
-		keys = {
-			{
-				"<leader>f",
-				function()
-					require("conform").format({ async = true, lsp_fallback = true })
-				end,
-				mode = "",
-				desc = "[F]ormat buffer",
-			},
-		},
-		opts = {
-			notify_on_error = false,
-			format_on_save = function(bufnr)
-				-- Disable "format_on_save lsp_fallback" for languages that don't
-				-- have a well standardized coding style. You can add additional
-				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true, java = true }
-				return {
-					timeout_ms = 500,
-					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-				}
-			end,
-			formatters_by_ft = {
-				lua = { "stylua" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use a sub-list to tell conform to run *until* a formatter
-				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
-			},
-		},
-	},
+	-- { -- Autoformat
+	-- 	"stevearc/conform.nvim",
+	-- 	lazy = false,
+	-- 	keys = {
+	-- 		{
+	-- 			"<leader>f",
+	-- 			function()
+	-- 				require("conform").format({ async = true, lsp_fallback = true })
+	-- 			end,
+	-- 			mode = "",
+	-- 			desc = "[F]ormat buffer",
+	-- 		},
+	-- 	},
+	-- 	opts = {
+	-- 		notify_on_error = false,
+	-- 		format_on_save = function(bufnr)
+	-- 			-- Disable "format_on_save lsp_fallback" for languages that don't
+	-- 			-- have a well standardized coding style. You can add additional
+	-- 			-- languages here or re-enable it for the disabled ones.
+	-- 			local disable_filetypes = { c = true, cpp = true, java = true }
+	-- 			return {
+	-- 				timeout_ms = 500,
+	-- 				lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+	-- 			}
+	-- 		end,
+	-- 		formatters_by_ft = {
+	-- 			lua = { "stylua" },
+	-- 			-- Conform can also run multiple formatters sequentially
+	-- 			-- python = { "isort", "black" },
+	-- 			--
+	-- 			-- You can use a sub-list to tell conform to run *until* a formatter
+	-- 			-- is found.
+	-- 			-- javascript = { { "prettierd", "prettier" } },
+	-- 		},
+	-- 	},
+	-- },
 
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
@@ -701,7 +701,7 @@ require("lazy").setup({
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("carbonfox")
 		end,
 	},
 	"xiyaowong/transparent.nvim",
