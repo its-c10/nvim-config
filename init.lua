@@ -22,6 +22,12 @@ vim.opt.mouse = "a"
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
+-- No wrap
+vim.opt.wrap = false
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.ruler = true
+
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
@@ -151,6 +157,7 @@ require("lazy").setup({
     -- use opts = {} for passing setup options
     -- this is equivalent to setup({}) function
   },
+  {'akinsho/toggleterm.nvim', version = "*", opts = {--[[ things you want to change go here]]}},
 	"rose-pine/neovim",
 	"EdenEast/nightfox.nvim",
 	"nvim-telescope/telescope-file-browser.nvim", -- https://github.com/nvim-telescope/telescope-file-browser.nvim
@@ -225,22 +232,22 @@ require("lazy").setup({
 	-- after the plugin has been loaded:
 	--  config = function() ... end
 
-	-- { -- Useful plugin to show you pending keybinds.
-	-- 	"folke/which-key.nvim",
-	-- 	event = "VimEnter", -- Sets the loading event to 'VimEnter'
-	-- 	config = function() -- This is the function that runs, AFTER loading
-	-- 		require("which-key").setup()
-	--
-	-- 		-- Document existing key chains
-	-- 		require("which-key").register({
-	-- 			["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-	-- 			["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-	-- 			["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-	-- 			["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-	-- 			["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-	-- 		})
-	-- 	end,
-	-- },
+	{ -- Useful plugin to show you pending keybinds.
+		"folke/which-key.nvim",
+		event = "VimEnter", -- Sets the loading event to 'VimEnter'
+		config = function() -- This is the function that runs, AFTER loading
+			require("which-key").setup()
+
+			-- Document existing key chains
+			require("which-key").register({
+				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
+				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
+				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
+				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
+				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+			})
+		end,
+	},
 
 	-- NOTE: Plugins can specify dependencies.
 	--
@@ -633,7 +640,8 @@ require("lazy").setup({
 						luasnip.lsp_expand(args.body)
 					end,
 				},
-				completion = { completeopt = "menu,menuone,noinsert" },
+				completion = { },
+				-- completion = { completeopt = "menu,menuone,noinsert" },
 
 				-- For an understanding of why these mappings were
 				-- chosen, you will need to read `:help ins-completion`
@@ -701,7 +709,7 @@ require("lazy").setup({
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("carbonfox")
+			vim.cmd.colorscheme("tokyonight-moon")
 		end,
 	},
 	"xiyaowong/transparent.nvim",
@@ -843,6 +851,5 @@ require("lazy").setup({
 		},
 	},
 })
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
